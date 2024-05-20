@@ -6,8 +6,8 @@ import java.sql.*;
 public class Main {
     private static Connection connection = null;
     private static String url = "jdbc:postgresql://95.213.183.180:5432/test_prod";
-    private static String username = "postgres";
-    private static String password = "fWs@Qu434";
+    private static String username = "******";
+    private static String password = "******";
 
     public static void main(String[] args) throws SQLException {
         Statement stmt = null;
