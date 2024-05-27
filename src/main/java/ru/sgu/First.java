@@ -6,11 +6,11 @@ import java.util.*;
 
 
 public class First {
+    final String FILENAME = "new.txt";
     public List<mySort> createList() {
         List<mySort> myList = new ArrayList<>();
-        String fileName = "new.txt";
         try {
-            BufferedReader read = new BufferedReader(new FileReader(fileName));
+            BufferedReader read = new BufferedReader(new FileReader(FILENAME));
             String line;
             while ((line = read.readLine()) != null) {
                 String[] str = line.split(" ");
