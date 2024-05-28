@@ -3,6 +3,7 @@ package src.main.java.ru.sgu;
 import java.util.Objects;
 
 public class Predator extends Animal {
+    final String type = "Хищник";
 
     public Predator(String name, int quantity, int caloriesInDay) {
         super(name, quantity, caloriesInDay);
@@ -10,7 +11,7 @@ public class Predator extends Animal {
 
     @Override
     String typeOfFood() {
-        return "Хищник питается мясом";
+        return type + " питается мясом";
     }
 
     @Override
@@ -23,7 +24,7 @@ public class Predator extends Animal {
     @Override
     public String toString() {
         return "название = " + getName() +
-                " тип питания = хищник" +
+                " тип питания = " + type +
                 ", количество = " + getQuantity() +
                 ", требуется калорий в день = " + getCaloriesInDay();
     }
@@ -38,7 +39,9 @@ public class Predator extends Animal {
 
     @Override
     public int  hashCode() {
-        return Objects.hash(getName().hashCode(), "хищник".hashCode());
+        return Objects.hash(
+                super.hashCode(),
+                type.hashCode());
     }
 
     @Override

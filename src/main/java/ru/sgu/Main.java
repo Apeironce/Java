@@ -21,6 +21,9 @@ public class Main {
         System.out.println(predator.compareTo(herbivore));
         System.out.println(predator.hashCode());
         System.out.println(new Herbivore("Тигр", 2, 10000).hashCode());
+        System.out.println(new Herbivore("Тигр1", 2, 10000).hashCode());
+        System.out.println(new Herbivore("Тигр", 3, 10000).hashCode());
+        System.out.println(new Herbivore("Тигр", 2, 10001).hashCode());
 
         Animal predatorShallowCopy = predator.shallowCopy();
         Animal herbivoreDeepCopy = herbivore.deepCopy();

@@ -1,5 +1,7 @@
 package src.main.java.ru.sgu;
 
+import java.util.Objects;
+
 public abstract class Animal implements Cloneable,  Zoo{
     private String name;
     private int quantity;
@@ -37,10 +39,20 @@ public abstract class Animal implements Cloneable,  Zoo{
     }
 
     public int compareTo(Animal o) {
-        return this.name.compareTo(o.name);
+        int compName = name.compareTo(o.name);
+        if (compName != 0) {
+            return compName;
+        }
+        int compQuantity = quantity - o.quantity;
+        if (compQuantity != 0) {
+            return compQuantity;
+        }
+        return caloriesInDay - o.caloriesInDay;
     }
 
-    public abstract int hashCode();
+    public int hashCode() {
+        return Objects.hash(name, quantity, caloriesInDay);
+    }
 
     public Animal shallowCopy() {
         try {

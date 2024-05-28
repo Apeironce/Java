@@ -3,6 +3,7 @@ package src.main.java.ru.sgu;
 import java.util.Objects;
 
 public class Herbivore extends Animal{
+    final String type = "травоядное";
 
     public Herbivore(String name, int quantity, int caloriesInDay) {
         super(name, quantity, caloriesInDay);
@@ -10,7 +11,7 @@ public class Herbivore extends Animal{
 
     @Override
     String typeOfFood() {
-        return "Травоядное питается растениями";
+        return type + " питается растениями";
     }
 
     @Override
@@ -23,14 +24,25 @@ public class Herbivore extends Animal{
     @Override
     public String toString() {
         return "название = " + getName() +
-                " тип питания = травоядное" +
+                " тип питания = " + type +
                 ", количество = " + getQuantity() +
                 ", требуется калорий в день = " + getCaloriesInDay();
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Herbivore herbivore = (Herbivore) o;
+        return getName().equals(herbivore.getName());
+    }
+
     @Override
     public int  hashCode() {
-        return Objects.hash(getName().hashCode(), "травоядное".hashCode());
+        return Objects.hash(
+                super.hashCode(),
+                type.hashCode());
     }
 
     public Animal deepCopy() {
